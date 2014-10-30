@@ -1,0 +1,153 @@
+<html>
+	<head>
+		<title>JS_MAP_TESTS</title>
+		<meta name="date" content="2014-05-07">
+		<meta name="author" content="Brian GOHIER">
+		<script type="text/javascript" src="./bgohier_Map.js"></script>
+		<script type="text/javascript">
+			<!--
+			if (typeof (Map) !== 'function') {
+				document.write('<script type="text/javascript" src="./bgohier_Map.js"></script>');
+			}
+			//-->
+		</script>
+		<link rel="stylesheet" type="text/css" href="js_map_tests.css"/>
+	</head>
+	<body>
+		<div class="header">
+			<h2 class="title">Map object by Brian GOHIER  (A.k.a. Nemolovich)</h2>
+			<script type="text/javascript">
+				document.write("<p>"+Map.doc()+"</p>");
+			</script>
+		</div>
+		<div class="contentContainer">
+			<ul class="blockList">
+				<li class="blockList">
+					<ul class="blockList">
+						<li class="blockList">
+							<h2>Method Tests</h2>
+							<ul class="blockList">
+								<li class="blockList">
+									<h3>Constructor:</h3>
+									<script type="text/javascript">
+										var map1=new Map();
+										var map2=new Map();
+										document.write("<h5>map1: </h5>\n"+map1.getInfos());
+										document.write("<h5>map2: </h5>\n"+map2.getInfos());
+									</script>
+								</li>
+								<li class="blockList">
+									<h3>Put:</h3>
+									<h4>Values: "stringValue":"test", "sndString":"toRemove", "intValue":10, "sndInt":-10, "doubleValue":4.5, "booleanValue":true</h4>
+									<script type="text/javascript">
+										map1.put("stringValue","test");
+										map1.put("sndString","toRemove");
+										map1.put("intValue",10);
+										map1.put("sndInt",-10);
+										map1.put("doubleValue",4.5);
+										map1.put("booleanValue",true);
+										document.write("<h5>map1: </h5>\n"+map1.getInfos());
+									</script>
+								</li>
+								<li class="blockList">
+									<h3>Size:</h3>
+									<script type="text/javascript">
+										document.write("<h5>Size: "+map1.size()+"</h5>");
+										document.write("<h5>map1: </h5>\n"+map1.getInfos());
+									</script>
+								</li>
+								<li class="blockList">
+									<h3>IsEmpty:</h3>
+									<script type="text/javascript">
+										document.write("<h5>map1.isEmpty(): "+map1.isEmpty()+"</h5>");
+										document.write("<h5>map2.isEmpty(): "+map2.isEmpty()+"</h5>");
+										document.write("<h5>map1: </h5>\n"+map1.getInfos());
+										document.write("<h5>map2: </h5>\n"+map2.getInfos());
+									</script>
+								</li>
+								<li class="blockList">
+									<h3>ContainsKey:</h3>
+									<script type="text/javascript">
+										document.write("<h5>Key = \"stringValue\": "+map1.containsKey("stringValue")+"</h5>");
+										document.write("<h5>Key = \"unknownKey\": "+map1.containsKey("unknownKey")+"</h5>");
+										document.write("<h5>map1: </h5>\n"+map1.getInfos());
+									</script>
+								</li>
+								<li class="blockList">
+									<h3>ContainsValue:</h3>
+									<script type="text/javascript">
+										document.write("<h5>Key = 10: "+map1.containsValue(10)+"</h5>");
+										document.write("<h5>Key = \"10\": "+map1.containsValue("10")+"</h5>");
+										document.write("<h5>map1: </h5>\n"+map1.getInfos());
+									</script>
+								</li>
+								<li class="blockList">
+									<h3>IndexOf:</h3>
+									<script type="text/javascript">
+										document.write("<h5>Key = \"intValue\": "+map1.indexOf("intValue")+"</h5>");
+										document.write("<h5>Key = \"unknownKey\": "+map1.indexOf("unknownKey")+"</h5>");
+										document.write("<h5>map1: </h5>\n"+map1.getInfos());
+									</script>
+								</li>
+								<li class="blockList">
+									<h3>Get:</h3>
+									<script type="text/javascript">
+										document.write("<h5>Key = \"booleanValue\": "+map1.get("booleanValue")+"</h5>");
+										document.write("<h5>Key = \"unknownKey\": "+map1.get("unknownKey")+"</h5>");
+										document.write("<h5>map1: </h5>\n"+map1.getInfos());
+									</script>
+								</li>
+								<li class="blockList">
+									<h3>Remove:</h3>
+									<h4>Values: "sndString":"toRemove", "sndInt":-10</h4>
+									<script type="text/javascript">
+										map1.remove("sndString");
+										map1.remove("sndInt");
+										document.write("<h5>map1: </h5>\n"+map1.getInfos());
+									</script>
+								</li>
+								<li class="blockList">
+									<h3>PutAll:</h3>
+									<h4>PutAll from <i>map1</i> to <i>map2</i></h4>
+									<script type="text/javascript">
+										map2.putAll(map1);
+										document.write("<h5>map1: </h5>\n"+map1.getInfos());
+										document.write("<h5>map2: </h5>\n"+map2.getInfos());
+									</script>
+								</li>
+								<li class="blockList">
+									<h3>Equals:</h3>
+									<script type="text/javascript">
+										document.write("<h5>Equals:</h5>\n(['map1.equals(map2)'=<b>" + map1.equals(map2)+"</b>] ^ [map2.equals(map1)=<b>"+
+										map2.equals(map1)+"</b>]) = <b>"+(map1.equals(map2) && map2.equals(map1))+"</b>");
+										document.write("<h5>map1: </h5>\n"+map1.getInfos());
+										document.write("<h5>map2: </h5>\n"+map2.getInfos());
+									</script>
+								</li>
+								<li class="blockList">
+									<h3>Values:</h3>
+									<script type="text/javascript">
+										document.write("<h5>map1.values(): </h5>\n"+map1.values());
+										document.write("<br/>\n");
+										document.write("<h5>map1: </h5>\n"+map1.getInfos());
+									</script>
+								</li>
+								<li class="blockList">
+									<h3>Clear:</h3>
+									<p>Press <button onclick='map1.clear();updateMap();' title="Clear the Map">Clear</button> to clear the Map.</p>
+									<span id="result"/>
+									<script type="text/javascript">
+										function updateMap() {
+											document.getElementById("result").innerHTML = "<h5>map1: </h5>\n"+map1.getInfos();
+										}
+										updateMap();
+									</script>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</body>
+</html>
