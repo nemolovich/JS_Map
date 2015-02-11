@@ -11,13 +11,13 @@
  */
 function Map() {
 
-	Map.doc=function() {
-		return " * Implementation of Map object from Java.<br/>\n"+
- " * <br/>\n"+
- " * <i>@author</i> Brian GOHIER<br/>\n"+
- " * <i>@date</i> 18/07/2014<br/>\n"+
- " * <i>@see</i> <a href='http://docs.oracle.com/javase/7/docs/api/java/util/Map.html'>Java Doc</a><br/>\n"
-	}
+	Map.doc = function () {
+		return " * Implementation of Map object from Java.<br/>\n" +
+				" * <br/>\n" +
+				" * <i>@author</i> Brian GOHIER<br/>\n" +
+				" * <i>@date</i> 18/07/2014<br/>\n" +
+				" * <i>@see</i> <a href='http://docs.oracle.com/javase/7/docs/api/java/util/Map.html'>Java Doc</a><br/>\n";
+	};
 
 
 	/**
@@ -32,10 +32,10 @@ function Map() {
 	/**
 	 * Removes all of the mappings from this map.
 	 */
-	this.clear = function() {
+	this.clear = function () {
 		nbElms = 0;
 		elements = [];
-	}
+	};
 
 	/**
 	 * Returns <code>true</code> if this map contains a mapping for the
@@ -46,9 +46,9 @@ function Map() {
 	 * @return {boolean} - <code>true</code> if the key has been found,
 	 *         <code>false</code> otherwise.
 	 */
-	this.containsKey = function(key) {
+	this.containsKey = function (key) {
 		return this.indexOf(key) > -1;
-	}
+	};
 
 	/**
 	 * Returns the index of the element having the specified key.
@@ -58,7 +58,7 @@ function Map() {
 	 * @return {number} - The index of the element if it has been found,
 	 *         <code>-1</code> otherwise.
 	 */
-	this.indexOf = function(key) {
+	this.indexOf = function (key) {
 		var result = -1;
 		for (var i = 0; i < nbElms; i++) {
 			if (elements[i].key === key) {
@@ -67,7 +67,7 @@ function Map() {
 			}
 		}
 		return result;
-	}
+	};
 
 	/**
 	 * Returns <code>true</code> if this map maps one or more keys to the
@@ -79,7 +79,7 @@ function Map() {
 	 * @return {boolean} - <code>true</code> if the value has been found,
 	 *         <code>false</code> otherwise.
 	 */
-	this.containsValue = function(value) {
+	this.containsValue = function (value) {
 		var result = false;
 		for (var i = 0; i < nbElms; i++) {
 			if (elements[i].value === value) {
@@ -88,7 +88,7 @@ function Map() {
 			}
 		}
 		return result;
-	}
+	};
 
 	/**
 	 * Compares the specified object with this map for equality. Returns
@@ -105,7 +105,7 @@ function Map() {
 	 * @return {boolean} - <code>true</code> if the specified object is equal
 	 *         to this map, <code>false</code>.
 	 */
-	this.equals = function(map) {
+	this.equals = function (map) {
 		var result = true;
 		var keys = map.keySet();
 		if (typeof (map) === typeof (this) && nbElms === map.size()) {
@@ -120,7 +120,7 @@ function Map() {
 			result = false;
 		}
 		return result;
-	}
+	};
 
 	/**
 	 * Returns the value to which the specified key is mapped, or
@@ -144,7 +144,7 @@ function Map() {
 	 *         key.
 	 * 
 	 */
-	this.get = function(key) {
+	this.get = function (key) {
 		var result = undefined;
 		for (var i = 0; i < nbElms; i++) {
 			if (elements[i].key === key) {
@@ -153,14 +153,14 @@ function Map() {
 			}
 		}
 		return result;
-	}
+	};
 
 	/**
 	 * Returns informations about this map.
 	 * 
 	 * @return {string} - The informations about this map.
 	 */
-	this.getInfos = function() {
+	this.getInfos = function () {
 		var result = "<b>Map</b>:{<br/>\n";
 		result += "\tsize: " + nbElms + "<br/>\n";
 		result += "\tdata: " + this.toString() + "<br/>\n";
@@ -174,7 +174,7 @@ function Map() {
 	 * @return {boolean} - <code>true</code> if this map contains no key-value
 	 *         mappings.
 	 */
-	this.isEmpty = function() {
+	this.isEmpty = function () {
 		return nbElms === 0;
 	};
 
@@ -185,13 +185,13 @@ function Map() {
 	 * 
 	 * @return {[Object]} - A set view of the keys contained in this map.
 	 */
-	this.keySet = function() {
+	this.keySet = function () {
 		var result = [];
 		for (var i = 0; i < nbElms; i++) {
 			result[i] = elements[i].key;
 		}
 		return result;
-	}
+	};
 
 	/**
 	 * Associates the specified value with the specified key in this map
@@ -212,7 +212,7 @@ function Map() {
 	 *         previously associated <code>undefined</code> with <code>key</code>,
 	 *         if the implementation supports <code>undefined</code> values.)
 	 */
-	this.put = function(key, value) {
+	this.put = function (key, value) {
 		var result = undefined;
 		if (key !== undefined) {
 			var index;
@@ -229,7 +229,7 @@ function Map() {
 			elements[index].value = value;
 		}
 		return result;
-	}
+	};
 
 	/**
 	 * Copies all of the mappings from the specified map to this map. The effect
@@ -240,7 +240,7 @@ function Map() {
 	 * @param map
 	 *            {Object} - The mappings to be stored in this map.
 	 */
-	this.putAll = function(map) {
+	this.putAll = function (map) {
 		nbElms = map.size();
 		var keys = map.keySet();
 		for (var i = 0; i < nbElms; i++) {
@@ -249,7 +249,7 @@ function Map() {
 			elements[i].key = keys[i];
 			elements[i].value = value;
 		}
-	}
+	};
 
 	/**
 	 * Removes the mapping for a key from this map if it is present (optional
@@ -275,7 +275,7 @@ function Map() {
 	 * @return {Object} - The previous value associated with key, or
 	 *         <code>undefined</code> if there was no mapping for key.
 	 */
-	this.remove = function(key) {
+	this.remove = function (key) {
 		var result = undefined;
 		var found = false;
 		for (var i = 0; i < nbElms; i++) {
@@ -293,23 +293,23 @@ function Map() {
 			nbElms--;
 		}
 		return result;
-	}
+	};
 
 	/**
 	 * Returns the number of key-value mappings in this map.
 	 * 
 	 * @return {number} - The number of key-value mappings in this map.
 	 */
-	this.size = function() {
+	this.size = function () {
 		return nbElms;
-	}
+	};
 
 	/**
 	 * Returns a string version of the Map.
 	 * 
 	 * @return {string} - The map as string format.
 	 */
-	this.toString = function() {
+	this.toString = function () {
 		var result = "[ ";
 		var isFirst = true;
 		for (var i = 0; i < nbElms; i++) {
@@ -336,11 +336,12 @@ function Map() {
 	 *         map.
 	 * 
 	 */
-	this.values = function() {
+	this.values = function () {
 		var result = [];
 		for (var i = 0; i < nbElms; i++) {
 			result[i] = elements[i].value;
 		}
 		return result;
-	}
-} new Map();
+	};
+}
+new Map();
